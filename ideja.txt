@@ -1,0 +1,47 @@
+Aplikacija CourtScout pomaže korisnicima da brzo i jednostavno pronađu košarkaške terene i događaje u svojoj okolini. Na mapi korisnici mogu da pregledaju dostupne lokacije (otvoreni tereni, sale, open-gym termini), pri čemu svaki teren ima profil sa osnovnim podacima, fotografijama, opisom uslova (osvetljenje, broj koševa, mrežice, podloga), radnim vremenom i trenutnom gužvom. Drugi korisnici mogu da ocene i komentarišu terene/događaje, a svako ažuriranje (npr. nova fotografija, provera stanja ili prijava gužve) beleži se i ulazi u rangiranje terena i doprinosilaca, čime se stvara pouzdan sistem preporuka. Aplikacija takođe omogućava da se objave potrebe ekipe (npr. “Treba nam još 2 igrača za 3×3 kod hale u 18:30”), nakon čega se obaveštenje šalje igračima u blizini. Na taj način CourtScout povezuje one koji žele da zaigraju sa onima koji traže ekipu, olakšavajući organizaciju rekreacije i čineći dobru partiju košarke uvek dostupnom u komšiluku.
+
+Criteriums:
+Funkcionalna specifikacija studenskog projekta za predmet Razvoj mobilnih aplikacija i servisa
+u školskoj 2024/25. godini
+U okviru projekta treba razviti mobilnu aplikaciju koja implementira concept Mobile crowd sensing &
+collaboration u radu sa prostorno/vremenskim objektima koji imaju određeno značenje, čije se lokacije
+registruju na mapi i koji osim lokacije i vremena registrovanja nose i neke druge atributske podatke (u
+zavisnosti od izabranog domena, na primer, numerička ocena koju daju korisnici, komentar, tip…). Aplikacija
+se sastoji od:
+1. mobilnog i
+2. serverskog dela
+Mobilni deo implementirati korišćenjem Jetpack Compose biblioteke i Kotlin programskog jezika. Serverski
+deo implementirati korišćenjem Firebase servisa. Zadatak serverskog dela je da u bazi podataka snima
+prikupljene podatke i sinhronizuje razmenu podataka između mobilnih aplikacija.
+Mobilna aplikacija omogućava korisnicima:
+1. Registraciju na sistemu unosom osnovnih podataka (korisničko ime, šifra, ime i prezime, broj
+telefona i fotografija koja se ili snima iz aplikacije ili bira iz galerije i upload-uje na server sa ostalim
+podacima). Korisnik registrovanim korisničkim imenom i lozinkom mora da se prijavi na sistem pre
+nego što može da pokrene mobilnu aplikaciju. (20 poena)
+2. Mobilna aplikacija korišćenjem lociranja korisnika (i GPS i network based) sve vreme vodi evidenciju
+o lokaciji korisnika i na mapi prikazuje trenutnu korisnikovu lokaciju. (10 poena)
+3. Mobilna aplikacija implementira komunikaciju sa serverom (Firebase). Aplikacija periodično šalje
+trenutnu lokaciju korisnika i prima obaveštenja od servera (da je neki objekat ili drugi korisnik u
+blizini i sl.). Ukoliko se detektuje neki objekat ili korisnik u blizini prikazuje notifikaciju sa
+odgovarajućom porukom. (20 poena)
+4. Korisnik ima mogućnost da na svojoj trenutnoj lokaciji doda određeni objekat. Svrha objekta i
+moguće funkcionalnosti u radu sa njim zavise od konkretne teme aplikacije koju bira svaki student
+individualno. (Primeri mogu da uključuju: Na neku lokaciju na mapi se dodaje fotografija i tekst
+komunalnog problema; identifikuje se slobodno parking mesto; dodaje WiFi hotspot-ovi i password
+za pristup; dodaje se kviz pitanje vezano za istoriju grada, kada se neki od ostalih korisnika približi
+lokaciji može da da odgovor na to pitanje i tako skuplja bodove. Sam obilazak lokacija na mapi ili
+dodavanje ocene ili komentara korisniku skuplja bodove i donosi mu neki rang. Sakupljanje nekih
+predmeta na unetim lokacijama itd.). Korisnik može da filtrira prikaz svih objekata po autoru, tipu,vrednostima atributa i opsegu datuma i vremena kreiranja ili poslednje interakcije. Aplikacija
+prikazuje sve registrovane objekte na mapi i u tabeli. (30 poena)
+5. Mobilna aplikacija ima mogućnost pretraživanja objekata na mapi osim po atributima (npr. nazivu,
+kategoriji, opisu, itd.) i mogućnost pretraživanja objekata u zadatom radijusu u odnosu na trenutnu
+lokaciju korisnika. (10 poena)
+6. Aplikacija ima mogućnost rangiranja korisnika (javna lista vidljiva svim korisnicima) na osnovu
+prikupljenih poena. Korisnici dobijaju poene za svaku interakciju sa objektima (postavljanje novog,
+ocena postojećeg, dodavanje komentara I sl.) (10 poena)
+Projekat studenti implementiraju pojedinačno. Svaki studenat treba da se prijavi na Google Sheets
+dokumentu koji je objavljen nezavisno. U ovom dokumentu svaki studenat treba da pošalje opis teme
+(domena) aplikacije koju će implementirati sa kratkim skupom funkcionalnih zahteva kojim opisuje
+temu/domen, a koja takođe zadovoljava i definisane generalne funkcionalne zahteve. U skladu sa
+dodeljenim brojem poena za svaku stavku, nije neophodno da studenti implementiraju sve stavke kako bi
+položili ispit.
