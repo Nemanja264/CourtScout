@@ -7,9 +7,9 @@ Users can browse courts on a map, view detailed court profiles (photos, amenitie
 Nearby players receive notifications so a good game is always one tap away.
 
 
-**Map + List:** Discover outdoor courts, halls, and open-gym slots; cluster pins and switch to a sortable list.
-**Court profiles:** Photos, amenities (lighting, hoops, nets, surface), hours, average rating, latest crowd check-ins.
-**Events:** Create and browse events with time, needed players, skill tag, notes; join/leave.
+**Map + List:** Discover outdoor courts, halls, and open-gym slots; cluster pins and switch to a sortable list.  
+**Court profiles:** Photos, amenities (lighting, hoops, nets, surface), hours, average rating, latest crowd check-ins.  
+**Events:** Create and browse events with time, needed players, skill tag, notes; join/leave.  
 **Ratings & comments:** Per court and per event; one rating per user per 24h.  
 **Crowd checks:** Quick “crowd level” updates with anti-spam cooldowns and visible history.  
 **Search & filters:** Full-text search, amenity filters, and radius around your location.  
