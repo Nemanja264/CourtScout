@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "60172744639",
+    "project_id": "courtscout-6fa69",
+    "storage_bucket": "courtscout-6fa69.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:60172744639:android:69db8e7e1689821eabd30a",
+        "android_client_info": {
+          "package_name": "com.example.courtscout"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6DaCKyFaG6rgG2fUXvJuOMW10mhEXhno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
