@@ -2,6 +2,7 @@ package com.example.courtscout.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.courtscout.presentation.services.auth.AuthState
 import com.example.courtscout.presentation.services.auth.AuthService
@@ -34,7 +35,17 @@ class AuthViewModel(private val authService: AuthService): ViewModel(){
     ) = viewModelScope.launch {
 
         _authState.value = AuthState.Loading
-        val result = authService.register(email, password, fullName, phoneNumber, profileImage)
-        _authState.value = result
+        try {
+            val result = authService.register(email, password, fullName, phoneNumber, profileImage)
+            _authState.value = result
+        } catch (e: Exception) {
+            _authState.value = AuthState.Error(
+                e.localizedMessage ?: "Registration failed."
+            )
+        }
+    }
+
+    fun resetAuthState() {
+        _authState.value = AuthState.Idle
     }
 }

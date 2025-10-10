@@ -27,7 +27,7 @@ import androidx.compose.runtime.collectAsState
 import com.example.courtscout.presentation.services.auth.LoginInput
 import com.example.courtscout.presentation.services.auth.RegisterInput
 import com.example.courtscout.presentation.services.auth.RegisterValidator
-
+import android.widget.Toast
 
 @Composable
 fun RegisterScreen(
@@ -52,6 +52,25 @@ fun RegisterScreen(
 
     val validator = remember { RegisterValidator() }
     var localError by remember { mutableStateOf<String?>(null) }
+
+    LaunchedEffect(authState) {
+        when (authState) {
+            is AuthState.Authenticated -> {
+                Toast.makeText(context, "Registration successful!", Toast.LENGTH_SHORT).show()
+                onRegisterSuccess()
+                authViewModel.resetAuthState()
+            }
+            is AuthState.Error -> {
+                Toast.makeText(
+                    context,
+                    (authState as AuthState.Error).message,
+                    Toast.LENGTH_SHORT
+                ).show()
+                authViewModel.resetAuthState()
+            }
+            else -> Unit
+        }
+    }
 
     Column(
         modifier = Modifier

@@ -29,7 +29,7 @@ fun Navigation(modifier: Modifier, navController: NavHostController = rememberNa
         }
         composable(route = Screen.RegisterScreen.route){
             RegisterScreen(onRegisterSuccess = {
-                navController.navigate(Screen.LoginScreen.route) {
+                navController.navigate(Screen.HomeScreen.route) {
                     popUpTo(Screen.LoginScreen.route) { inclusive = true }
                     launchSingleTop = true
                 } },
