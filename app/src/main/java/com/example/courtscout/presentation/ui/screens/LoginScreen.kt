@@ -39,7 +39,7 @@ fun LoginScreen(
         if (authState is AuthState.Authenticated) {
             Toast.makeText(context, "Welcome back!", Toast.LENGTH_SHORT).show()
 
-            navController.navigate("home_screen"){
+            navController.navigate("main_screen"){
                 popUpTo("login_screen"){inclusive = true}
                 launchSingleTop = true
             }
@@ -66,7 +66,7 @@ fun LoginScreen(
             modifier = Modifier.fillMaxWidth(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
             singleLine = true,
-            enabled = authState !is AuthState.Loading // Disable when loading
+            enabled = authState !is AuthState.Loading
         )
 
         Spacer(modifier = Modifier.height(16.dp))

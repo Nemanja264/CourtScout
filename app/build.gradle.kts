@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.extended)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -67,5 +68,6 @@ dependencies {
 
     // Google Maps & Location
     implementation(libs.play.services.maps)
+    implementation(libs.maps.compose)
     implementation(libs.play.services.location)
 }

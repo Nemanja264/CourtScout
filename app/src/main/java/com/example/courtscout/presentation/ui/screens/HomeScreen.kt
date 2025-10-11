@@ -1,58 +1,56 @@
 package com.example.courtscout.presentation.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Button
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.navOptions
 import com.example.courtscout.presentation.AppViewModelProvider
 import com.example.courtscout.presentation.navigation.Screen
-import com.example.courtscout.presentation.services.auth.AuthState
+import com.example.courtscout.presentation.ui.components.OptionsMenu
+import com.example.courtscout.presentation.ui.theme.OrangePrimary
 import com.example.courtscout.presentation.viewmodels.AuthViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(modifier: Modifier = Modifier, navController: NavController, authViewModel: AuthViewModel = viewModel(factory = AppViewModelProvider.Factory))
-{
-    val context = LocalContext.current
-
-    fun backToLogIn()
-    {
-        navController.navigate(Screen.LoginScreen.route) {
-            popUpTo(Screen.HomeScreen.route) { inclusive = true }
-            launchSingleTop = true
+fun HomeScreen(
+    navController: NavController,
+    authViewModel: AuthViewModel = viewModel(factory = AppViewModelProvider.Factory)
+) {
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("CourtScout") },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = OrangePrimary
+                ),
+                actions = {
+                    OptionsMenu(onSignOutClick = {
+                        authViewModel.signOut()
+                        navController.navigate(Screen.LoginScreen.route) {
+                            popUpTo("main_screen") { inclusive = true }
+                            launchSingleTop = true
+                        }
+                    })
+                }
+            )
+        }
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(text = "Home Screen")
         }
     }
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(horizontal = 32.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Text(text = "Welcome to Home Screen!")
-        Button(
-            onClick = {
-                authViewModel.signOut()
-                backToLogIn() },
-            modifier = Modifier.fillMaxWidth(),
-            enabled = true
-        ){
-            Text("Sign Out")
-        }
-    }
-
 }
